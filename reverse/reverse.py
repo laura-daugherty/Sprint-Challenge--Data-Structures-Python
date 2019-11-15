@@ -27,6 +27,7 @@ class LinkedList:
     
     self.head = node
 
+  
   def contains(self, value):
     if not self.head:
       return False
@@ -43,5 +44,36 @@ class LinkedList:
     return False
 
   def reverse_list(self):
-    # TO BE COMPLETED
-    pass
+    if self.head is None or self.head.get_next() is None:
+      return
+    # reversed = LinkedList()
+    # newSelf = Node(self)
+    # newSelfValue = newSelf.get_value()
+
+    # if self is None:
+    #   return
+    # else:
+    #   reversed.add_to_head(newSelfValue)
+
+    # reversed = LinkedList()
+    # newSelf = Node(self)
+    else:
+      left = self.head
+      current = left.get_next()
+      left.set_next(None)
+      while current and current.get_next():
+        right = current.get_next()
+        current.set_next(left)
+        left = current
+        current = right
+      current.set_next(left)
+      self.head = current
+    
+
+    # selfNode = Node(self)
+    # while self is not None:
+    #   print("selfNode 1", selfNode)
+    #   selfNode = selfNode.next_node
+    #   print("selfNode 2", selfNode)
+    #   return
+      
